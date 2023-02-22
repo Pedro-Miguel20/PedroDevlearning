@@ -1,0 +1,264 @@
+<htm>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face{
+	font-family: 'amatic';
+	src: url(video/AmaticSC-Bold.ttf);
+}
+
+@font-face{
+	font-family: 'merenda';
+	src: url(video/Merienda-VariableFont_wght.ttf);
+}
+
+html{
+	margin: 0;
+}
+
+body{
+	background-color: #222831;
+	margin: 0;
+}
+
+.font{
+	color: #EEEEEE ;
+	font-family: 'amatic', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+	font-size: 50px;
+}
+
+p{
+	font-size: 30px;
+	color: #EEEEEE ;
+	font-family: 'amatic', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+}
+	
+span{
+	display: flex;
+	justify-content: center;
+	font-family: 'merenda', cursive;
+	color: white;
+	font-size: 40px;
+}
+
+.animation{
+	animation-duration: 2s;
+	animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: -100%;
+    width: 100%;
+  }
+
+  to {
+    margin-left: -100%;
+    width: 300%;
+  }
+}
+
+
+a{
+	text-decoration: none;
+}
+
+a:hover{
+	color: #00ADB5;
+	transition: all 0.3s;
+}
+
+header{
+	background-color: #393E46;
+	height: 70px;
+}
+
+#menu{
+	text-decoration: none;
+	display: flex;
+	list-style: none;
+	justify-content: space-around;
+	padding: 0;
+	margin: 0;
+}	
+
+.first{
+	width: 50%;
+	display: inline-block;
+	padding-top: 10px;
+}
+
+.second {
+	vertical-align: top;
+            width: 50%;
+            display: inline-block;
+	padding-top: 10px;
+	margin-left: 15px;
+}
+
+.test{
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-right: 15px;
+}
+
+.test2{
+	padding-top: 5px;
+	padding-right: 20px;
+
+}
+
+
+@media screen and (max-width: 650px) {
+	.first,
+            .second{
+            	width: 100%;
+            }
+	.test{
+		padding-left: 24px;
+		padding-right: 24px;
+		padding-bottom: 10px;
+	}
+	.test2{
+		padding-top: 5px;
+		padding-right: 0;
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+	#main{
+		flex-direction: column;
+		text-align: justify;
+	}
+	.second{
+		display: flex;
+		flex-direction: column;
+		align-items: center;	
+		margin-left: 0px;
+	}
+	.outside{
+		border-radius: 25px;
+		width: 100%;
+		max-width: 400px;
+		height: auto;
+		border-radius: 25px;
+		display: flex;
+		flex-direction: column;
+	}
+	.inside{
+		width: 100%;
+  		max-width: 400px;
+	 	height: auto;
+  		max-height: 400px;
+		border-radius: 25px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;	
+	}
+}
+
+@media screen and (min-width: 651px) and (max-width: 1200px) {
+	.second{
+		display: flex;
+		flex-direction: column;
+		align-items: center;			
+	}
+	.outside{
+		width: 100%;
+		max-width: 425px;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		border-radius: 25px;
+	}
+	.inside{
+		width: 100%;
+  		max-width: 425px;
+	 	height: auto;
+  		max-height: 425px;
+		border-radius: 25px;
+		border-bottom-left-radius: 0px;
+		border-bottom-right-radius: 0px;
+	}
+	
+}
+	
+div{
+	vertical-align: top;
+}
+
+#main{
+	display: flex;
+	text-align: justify;
+}
+
+.inside{
+	margin: 0;
+	padding: 0;
+}
+
+.outside{
+	background-color: #00ADB5;
+	margin-top: 25px;
+	display: flex;
+}
+
+.desc{
+	font-size: 28px;
+	color: #EEEEEE ;
+	font-family: 'amatic', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	margin: 10px;
+}
+
+.title{
+	font-size: 28px;
+}
+
+
+</style>
+</head>
+<body>
+	<header>
+		<nav id="nav">			
+			<ul id="menu">					
+				<li><a class="about font" href=>Logo</a></li>
+  				<li><a class="align font" "href="about" "/sobre/">Contatos</a></li>
+				<li><a class="about font" href="#quem_somos" "/sobre/">Sobre</a></li>
+			</ul>
+		</nav>
+	</header>
+	<div id="main">
+		<div class="first">
+			<span class="animation">Nossa história</span>
+			<p class="test">Lorem Ipsum é simplesmente uma simulação de texto da indústria 
+			tipográfica e de impressos, e vem sendo utilizado desde o século XVI, 
+			quando um impressor desconhecido pegou uma bandeja de tipos e os 
+			embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum 
+			sobreviveu não só a cinco séculos, como também ao salto para a editoração 
+			eletrônica, permanecendo essencialmente inalterado. Se popularizou na 
+			década de 60, quando a Letraset lançou decalques contendo passagens 
+			de Lorem Ipsum, e mais recentemente quando passou a ser integrado
+			 a softwares de editoração eletrônica como Aldus PageMaker.</p>
+		</div>
+		<div class="second">
+			<span class="animation2" id="quem_somos">Nossa missão</span>
+			<p class="test2">O trecho padrão original de Lorem Ipsum, usado desde o século XVI, 
+			está reproduzido abaixo para os interessados. Seções 1.10.32 e 1.10.33 
+			de "de Finibus Bonorum et Malorum" de Cicero também foram reproduzidas
+			 abaixo em sua forma exata original, acompanhada das versões para o inglês
+			da tradução feita por H. Rackham em 1914.</p>
+		<div class="outside">
+			<img src="video/renascer.jpeg" class="inside" alt="Girl in a jacket" width="350" height="350">	
+			<div class="ininside">
+				<span class="title" id="quem_somos">Nossa missão</span>
+				<p class="desc">O trecho padrão original de Lorem Ipsum, usado desde o século XVI, 
+				está reproduzido abaixo para os interessados. Seções 1.10.32 e 1.10.33 
+				de "de Finibus Bonorum et Malorum"</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

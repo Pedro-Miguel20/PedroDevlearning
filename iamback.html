@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="UTF-8">
+		<meta name="descrição" content="A site about the me">
+		<link rel="stylesheet" href="estilo.css">
+		<title>euvoltei</title>
+		<script>
+		window.onload=function(){
+			const btnMobile = document.getElementById('btn-mobile');
+
+			function toggleMenu() {
+				const nav = document .getElementById('nav');
+				nav.classList.toggle('active');
+			}
+
+			btnMobile.addEventListener('click', toggleMenu);
+		}
+		</script>
+	</head>
+<html>
+	<body class="item  bg-white">
+		<header id="header"class="relative" style="z-index: 10;">
+			<a class="logo" id="logo" href="/name/">LOGO</a>
+			<nav id="nav">
+				<button class="btn" id="btn-mobile" style="color: white;">MENU</button>				
+				<ul id="menu">					
+					<li><a class="contact" href="/sim/">CONTACT</a></li>
+  					<li><a class="about" "href="about" "/sobre/">ABOUT</a></li>
+					<li><a class="services" href="services" "/sobre/">SERVICES</a></li>
+				</ul>
+			</nav>
+		</header>
+		<video
+			loop="loop"
+			autoplay="autoplay"
+			muted="muted"
+			playsinline
+			id="bg-video"
+			src="./video/site.mp4"
+		></video>
+		<div class="conteiner">
+			<div class="main-box font"  style="top: 130px;">
+				<h2 style="color: white;">Main text example
+				<br><span style="color: #00bfff;">Span text example</span></h2>
+				<p style="color: white;">main paragraph example</p>
+				<html>
+					<button onclick="window.open('https://youtu.be/FqmB-Zj2-PA')" class="button-size font butao">Click Me!</button>
+				</html>
+			</div>
+			<div class="conteiner2">
+				<nav class="nav-tabs">
+					<ul class="font">
+						<li>
+							<div class="content2">
+								<input type="radio" name="tabs" class="rdtab" id="tabs1" 
+								checked>
+								<label for='tabs1'>tabs1</label>
+								<div class="content">
+									<article>
+										Hello this is your first view about my webpage	and I want to show you 
+										how has been my progress in programming especially in frontend bases.
+										This navbar was made based in a tutorial on youtube that you can watch
+										clicking on the bottom below.
+									</article>
+									<html>
+										<button onclick="window.open('https://youtu.be/SKfeIP3q9oI')" class="button-size font outro" style="color: #f5bb00">Click Me!</button>
+									</html>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="content2">
+								<input type="radio" name="tabs" class="rdtab" id="tabs2">
+								<label for='tabs2'>tabs2</label>
+								<div class="content">
+									<article>
+										My moma always said that life is like a box of chocolate, you never know what you are gonna get
+									</article>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="content2">
+								<input type="radio" name="tabs" class="rdtab" id="tabs3">
+								<label for='tabs3'>tabs3</label>
+								<div class="content">
+									<article>
+										Hello this is your first view about my webpage	and I want to show you how has been my progress in programming especially in front bases.
+									</article>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</body>
+</html>
