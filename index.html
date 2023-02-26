@@ -1,0 +1,221 @@
+<htm>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+@font-face{
+	font-family: 'amatic';
+	src: url(video/TiltNeon-Regular-VariableFont_XROT,YROT.ttf);
+}
+
+@font-face{
+	font-family: 'merenda';
+	src: url(video/BLUEOCEAN.ttf);
+}
+
+@font-face{
+	font-family: 'montserrat';
+	src: url(video/RobotoCondensed-Light.ttf);
+}
+
+
+html{
+	margin: 0;
+}
+
+body{
+	background-color: white;
+	margin: 0;
+}
+
+.font{
+	color: #EEEEEE ;
+	font-family: 'amatic', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+	font-size: 20px;
+}
+
+p{
+	font-size: 20px;
+	color: black ;
+	font-family: 'montserrat', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+}
+	
+span{
+	display: flex;
+	flex-direction: column;
+	font-family: 'merenda', cursive;
+	color: #190829;
+	font-size: 13px;
+	margin: 30px;
+	transform:scale(2,3);
+}
+
+.main{
+	font-size: 30px;
+	position: relative;
+	top: 20px;
+	transform:scale(2,3);
+}
+
+.main:hover {
+	color: #F5D23B;
+	transition: all 1s;
+}
+
+.white{
+	color: white;
+}
+
+a{
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+	margin: 0;
+	font-size: 15px;
+	font-family: 'montserrat', sans-serif;
+	color: white;
+}
+
+header{
+	background-image: linear-gradient(#955EF5, #982EF5, #7F4FD1);
+	height: auto;
+	border-bottom-right-radius: 60px;
+	border-bottom-left-radius: 60px;
+	object-fit: contain;
+}
+
+#menu{
+	text-decoration: none;
+	display: flex;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 17px;
+	right: 30px;
+ 	gap: 30px;
+}	
+
+.cross{
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+ .second{
+           margin: 20px;
+}
+
+.btn{
+	display: block;
+	color: #982EF5;
+	font-family: 'montserrat', cursive;
+	border: 12px solid white;
+	background: white;
+	border-radius: 25px;
+	margin: 25px;
+	margin-bottom: 0px;
+} 
+
+.btn:hover{
+	color: black;
+	border-color: #F5D23B ;
+	background: #F5D23B;
+	transform: scale(1.1);
+	transition-duration:0.4s;
+}
+
+@media screen and (max-width: 650px) {
+            .second{
+            	width: 100%;
+            }
+	.test2{
+		padding-top: 5px;
+		padding-right: 0;
+		padding-left: 24px;
+		padding-right: 24px;
+	}
+	#main{
+		flex-direction: column;
+		text-align: justify;
+	}
+	.second{
+		display: flex;
+		flex-direction: column;
+		align-items: center;	
+		margin-left: 0px;
+	}
+	.main{
+		font-size: 18px;
+		transform:scale(2,3);
+		margin: 25px;
+	}
+	p{
+		font-size: 20px;
+	}
+	.btn{
+		margin: 15px;
+	}
+}
+
+@media screen and (min-width: 651px) and (max-width: 1200px) {
+	.second{
+		display: flex;
+		flex-direction: column;
+		align-items: center;			
+	}
+}
+	
+#main{
+	display: flex;
+	max-width: 700px;
+	text-align: center;
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.logo{
+	filter: invert(1);
+	margin: 15px;
+}
+
+.start{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+}
+
+</style>
+</head>
+<body>
+	<header>
+		<img src="video/logo.png" class="logo" href="" width="20" height="20">
+		<nav id="nav">		
+			<ul id="menu">					
+				<li><a class="about" href=>Home</a></li>
+  				<li><a class="about" "href="about" "/sobre/">Sobre</a></li>
+				<li><a class="about" href="#quem_somos" "/sobre/">Contato</a></li>
+			</ul>
+		</nav>
+		<div class="start">
+			<span class="main white">RENASCER</span>
+			<button class="btn" align="center">Contate-me!</button> 
+		</div>
+		<img src="video/cruz.1.1.png" class="cross" alt="cruz" width="350" height="500">
+	</header>
+	<div id="main">
+		<div class="second">
+			<span class="animation2" id="quem_somos">Nossa missão</span>
+			<p class="test2">O trecho padrão original de Lorem Ipsum, usado desde o século XVI, 
+			está reproduzido abaixo para os interessados. Seções 1.10.32 e 1.10.33 
+			de "de Finibus Bonorum et Malorum" de Cicero também foram reproduzidas
+			 abaixo em sua forma exata original, acompanhada das versões para o inglês
+			da tradução feita por H. Rackham em 1914.</p>
+		</div>
+	</div>
+</body>
+</html>
