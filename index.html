@@ -1,6 +1,90 @@
 <htm>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+window.onload=function(){
+
+	document.querySelectorAll('.slides img').forEach(image =>{
+		image.onclick = () =>{
+			document.querySelector('.poopup').style.display = 'block';
+			document.querySelector('.poopup img').src = image.getAttribute('src');
+		}
+	});
+
+	document.querySelector('.poopup span').onclick = () =>{
+			document.querySelector('.poopup').style.display = 'none';
+	}
+
+	const slides = document.querySelector(".slides"),
+	firstImg = slides.querySelectorAll("img")[0];
+	arrowIcons = document.querySelectorAll(".slideshow i");
+	
+	let isDragStart = false, isDragging = false, prevPageX, prevScrollLeft, positionDiff;
+
+	const showHideIcons = () => {
+		let scrollWidth = slides.scrollWidth - slides.clientWidth;
+		arrowIcons[0].style.display = slides.scrollLeft == 0 ? "none" : "block";
+		arrowIcons[1].style.display = slides.scrollLeft == scrollWidth ? "none" : "block";
+	}
+	
+	arrowIcons.forEach(icon => {
+		icon.addEventListener("click", () => {
+			let firstImgWidth = firstImg.clientWidth + 14;
+			slides.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
+			setTimeout(() => showHideIcons(), 60);		
+		});	
+	});
+
+	const autoSlide = () => {
+		if(slides.scrollLeft == (slides.scrollWidth - slides.clientWidth))return;
+		
+		positionDiff = Math.abs(positionDiff);
+		let firstImgWidth = firstImg.clientWidth + 14;
+		let valDifference = firstImgWidth - positionDiff;
+		
+		if(slides.scrollLeft > prevScrollLeft) {
+			return slides.scrollLeft += positionDiff > firstImgWidth / 3 ? valDifference : -positionDiff;
+		}
+		slides.scrollLeft -= positionDiff > firstImgWidth / 3 ? valDifference : positionDiff;
+	}
+
+	const dragStart = (e) => {
+		isDragStart = true;
+		prevPageX = e.pageX || e.touches[0].pageX;
+		prevScrollLeft = slides.scrollLeft;
+	}
+
+	const dragging = (e) => {
+		if(!isDragStart) return;
+		e.preventDefault();
+		isDragging = true;
+		slides.classList.add("dragging");
+		positionDiff = (e.pageX || e.touches[0].pageX) - prevPageX;
+		slides.scrollLeft = prevScrollLeft - positionDiff;
+		showHideIcons();
+	}
+
+	const dragStop = () => {
+		isDragStart = false;
+		slides.classList.remove("dragging");
+		
+		if(!isDragging) return;
+		isDragging = false;
+		autoSlide();
+	}
+
+	slides.addEventListener("mousedown", dragStart);
+	slides.addEventListener("touchstart", dragStart);
+
+	slides.addEventListener("mousemove", dragging);
+	slides.addEventListener("touchmove", dragging);
+
+	slides.addEventListener("mouseup", dragStop);
+	slides.addEventListener("mouseleave", dragStop);
+	slides.addEventListener("touchend", dragStop);
+}
+
+</script>
 <style>
 @font-face{
 	font-family: 'amatic';
@@ -14,12 +98,24 @@
 
 @font-face{
 	font-family: 'montserrat';
-	src: url(video/RobotoCondensed-Light.ttf);
+	src: url(video/TangoSansBoldItalic.ttf);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.004);
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
 }
 
+@font-face{
+	font-family: 'sarap';
+	src: url(video/TangoSansBoldItalic.ttf);
+}
+
+*, html {
+	scroll-behavior: smooth;
+}
 
 html{
 	margin: 0;
+	scroll-behavior: smooth;
 }
 
 body{
@@ -37,27 +133,30 @@ body{
 
 p{
 	font-size: 20px;
-	color: black ;
+	color: #111214;
 	font-family: 'montserrat', sans-serif;
-	-webkit-font-smoothing: antialiased;
-	margin: 0;
+	margin-bottom: 30px;
 }
 	
-span{
+h2{
+	font-family: 'sarap', cursive;
 	display: flex;
 	flex-direction: column;
-	font-family: 'merenda', cursive;
-	color: #190829;
-	font-size: 13px;
-	margin: 30px;
-	transform:scale(2,3);
+	color: #111214;
+	font-size: 45px;
+	margin: 20px;
+	align-items: center;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
 }
 
 .main{
+	font-family: 'merenda', cursive;
 	font-size: 30px;
 	position: relative;
 	top: 20px;
 	transform:scale(2,3);
+	margin: 30px;
 }
 
 .main:hover {
@@ -74,13 +173,13 @@ a{
 	-webkit-font-smoothing: antialiased;
 	margin: 0;
 	font-size: 15px;
-	font-family: 'montserrat', sans-serif;
+	font-family: 'amatic', sans-serif;
 	color: white;
 }
 
 header{
-	background-image: linear-gradient(#955EF5, #982EF5, #7F4FD1);
-	height: auto;
+	background-image: linear-gradient(#47A3F5, #3F91D9);
+	height: 80svh;
 	border-bottom-right-radius: 60px;
 	border-bottom-left-radius: 60px;
 	object-fit: contain;
@@ -93,25 +192,15 @@ header{
 	padding: 0;
 	margin: 0;
 	position: absolute;
-	top: 17px;
+	top: 21px;
 	right: 30px;
  	gap: 30px;
 }	
 
-.cross{
-	display: flex;
-	margin-left: auto;
-	margin-right: auto;
-}
-
- .second{
-           margin: 20px;
-}
-
 .btn{
 	display: block;
-	color: #982EF5;
-	font-family: 'montserrat', cursive;
+	color: #3F91D9;
+	font-family: 'amatic', cursive;
 	border: 12px solid white;
 	background: white;
 	border-radius: 25px;
@@ -120,11 +209,137 @@ header{
 } 
 
 .btn:hover{
-	color: black;
+	color: white;
 	border-color: #F5D23B ;
 	background: #F5D23B;
 	transform: scale(1.1);
 	transition-duration:0.4s;
+}
+
+.green{
+	padding-left:120px;
+    	padding-right:120px;
+	display: flex;
+	background: #68F53B;
+	height:100svh;
+	display: flex;
+	flex-direction: column;
+}
+
+.slideshow{
+	max-width: 1200px;
+	position: relative;
+}
+
+.slideshow .slides{
+	display: flex;
+	align-items: center;
+	font-size: 0px;
+	cursor: pointer;
+	white-space: nowrap;
+	overflow: hidden;
+	scroll-behavior: smooth;
+}
+
+.slides.dragging{
+	cursor: grab;
+	scroll-behavior: auto;
+}
+
+.slides.dragging img{
+	pointer-events: none;
+}
+
+.slides img{
+	height: 100%;
+	margin-left: 14px;
+	width: calc(100% / 3.08);
+}
+
+.slides img:first-child{
+	margin-left: 0px;
+}
+
+.slideshow i{
+	top: 50%;
+	height: 70px;
+	width: 70px;
+	cursor: pointer;
+	position: absolute;
+	font-size: 25px;
+	color: #68F53B;
+	text-align: center;
+	line-height: 70px;
+	background: white;
+	border-radius: 50%;
+	transform: translateY(-50%);
+}
+
+.slideshow i:first-child{
+	left: -35px;
+	display: none;
+}
+
+.slideshow i:last-child{
+	right: -35px;
+}
+
+.jpeg{
+	border-radius: 25px;
+}
+
+.green .poopup{
+	position: fixed;
+	top: 0; 
+	left: 0;
+	background:rgba(0,0,0,.9);
+	height: 100%;
+	width:100%;
+	z-index: 100;
+	display:none;
+}
+
+.green .poopup span{
+	position:absolute;
+	top:0; right:10px;
+	font-size:60px;
+	color: white;
+	z-index: 100;
+}
+
+.green .poopup img{
+	position: absolute;
+	width:710px;
+	object-fit:cover;
+	top: 50%; 
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+@media (max-width: 768px) {
+	.green .poopup img{
+		width: 95%;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.slides img{
+		width: calc(100% / 2.04)
+	}
+}
+@media screen and (max-width: 580px) {
+	.slides img{
+		width: 100%;
+	}
+	.slideshow i{
+		width: 50px;
+		height: 50px;
+		line-height: 50px;
+	}
+	.green{
+		padding-left: 55px;
+    		padding-right: 55px;	
+	}
 }
 
 @media screen and (max-width: 650px) {
@@ -148,15 +363,18 @@ header{
 		margin-left: 0px;
 	}
 	.main{
-		font-size: 18px;
+		font-size: 16px;
 		transform:scale(2,3);
 		margin: 25px;
 	}
 	p{
-		font-size: 20px;
+		font-size: 15px;
 	}
 	.btn{
 		margin: 15px;
+	}
+	h2{
+		font-size: 35px;
 	}
 }
 
@@ -175,6 +393,7 @@ header{
 	flex-direction: column;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 30px;
 }
 
 .logo{
@@ -190,10 +409,13 @@ header{
 }
 
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
 	<header>
-		<img src="video/logo.png" class="logo" href="" width="20" height="20">
+		<a  href="#quem_somos">
+			<img src="video/logo.png" class="logo" href="#quem_somos" "width="30" height="30">
+		</a>
 		<nav id="nav">		
 			<ul id="menu">					
 				<li><a class="about" href=>Home</a></li>
@@ -205,16 +427,34 @@ header{
 			<span class="main white">RENASCER</span>
 			<button class="btn" align="center">Contate-me!</button> 
 		</div>
-		<img src="video/cruz.1.1.png" class="cross" alt="cruz" width="350" height="500">
 	</header>
 	<div id="main">
 		<div class="second">
-			<span class="animation2" id="quem_somos">Nossa missão</span>
+			<h2 class="animation" id="quem_somos"><span style="font-size: 35px;">👑</span>Sobre nós</h2>
 			<p class="test2">O trecho padrão original de Lorem Ipsum, usado desde o século XVI, 
 			está reproduzido abaixo para os interessados. Seções 1.10.32 e 1.10.33 
 			de "de Finibus Bonorum et Malorum" de Cicero também foram reproduzidas
 			 abaixo em sua forma exata original, acompanhada das versões para o inglês
 			da tradução feita por H. Rackham em 1914.</p>
+		</div>
+	</div>
+	
+	<div class="green">
+		<h2 class="animation" id="quem_somos"><span style="font-size: 35px;">👑				</span>Experiencias</h2>
+		<div class="slideshow">
+			<i id="left" class="fa-solid fa-angle-left"></i>
+			<div class="slides">
+				<img class="jpeg" src="video/img2.jpeg" draggable="false">
+				<img class="jpeg" src="video/img4.jpeg" draggable="false">
+				<img class="jpeg" src="video/img5.jpeg" draggable="false">
+				<img class="jpeg" src="video/img3.jpeg" draggable="false">
+				<img class="jpeg" src="video/img1.jpeg" draggable="false">
+			</div>
+			<i id="right" class="fa-solid fa-angle-right"></i>
+		</div>
+		<div class="poopup">
+			<span>&times;</span>
+			<image class="jpeg" src="video/img2.jpeg">
 		</div>
 	</div>
 </body>
