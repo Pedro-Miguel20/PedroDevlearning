@@ -31,7 +31,7 @@ window.onload=function(){
 		icon.addEventListener("click", () => {
 			let firstImgWidth = firstImg.clientWidth + 14;
 			slides.scrollLeft += icon.id == "left" ? -firstImgWidth : firstImgWidth;
-			setTimeout(() => showHideIcons(), 60);		
+			setTimeout(() => showHideIcons(), 55);		
 		});	
 	});
 
@@ -82,6 +82,24 @@ window.onload=function(){
 	slides.addEventListener("mouseup", dragStop);
 	slides.addEventListener("mouseleave", dragStop);
 	slides.addEventListener("touchend", dragStop);
+	
+	let didScroll = false;
+let paralaxTitles = document.querySelectorAll('.paralax-title');
+
+const scrollInProgress = () => {
+	didScroll = true
+}
+
+const raf = () => {
+	if(didScroll) {
+		paralaxTitles.forEach((element, index) => {
+			element.style.transform = "translateX("+ window.scrollY / 10 + "%)"
+		})
+		didScroll = false;
+	}
+	requestAnimationFrame(raf);
+	}
+
 }
 
 </script>
@@ -172,7 +190,7 @@ a{
 	text-decoration: none;
 	-webkit-font-smoothing: antialiased;
 	margin: 0;
-	font-size: 15px;
+	font-size: 18px;
 	font-family: 'amatic', sans-serif;
 	color: white;
 }
@@ -201,6 +219,7 @@ header{
 	display: block;
 	color: #3F91D9;
 	font-family: 'amatic', cursive;
+	font-size: 16px;
 	border: 12px solid white;
 	background: white;
 	border-radius: 25px;
@@ -221,8 +240,7 @@ header{
     	padding-right:120px;
 	display: flex;
 	background: #68F53B;
-	height:100svh;
-	display: flex;
+	height: 150svh;
 	flex-direction: column;
 }
 
@@ -316,9 +334,85 @@ header{
 	transform: translate(-50%, -50%);
 }
 
-@media (max-width: 768px) {
+form{
+	display: flex;
+	height: 370px;
+	align-items: center;
+	position: relative;
+	top: 40px;
+	left: 50%;
+	transform: translateX(-50%);
+	flex-direction: column;
+	background-color: white;
+	border-radius: 20px;
+	width: 60%;
+	margin: 0;
+}
+
+.contact{
+	margin: 8px;
+	font-family: 'sarap', cursive;
+	color: #111214;
+}
+
+
+input{
+	display: block;
+	width: 100%;
+	resize: vertical;
+	border-radius: 13px;
+	height: 35px;
+	line-height: 35px;
+	font-size:20px;
+	border: 2px solid	 #737373;
+	margin-right:180px;
+	padding: 12px;
+}
+
+input:hover{
+	border: 2px solid #343434;
+}
+
+.materia{
+	display: block;
+	width: 100%;
+	resize: vertical;
+	height: 100px;
+	border: 2px solid #737373;
+	font-size:20px;
+	border-radius: 15px;
+	margin-right:190px;
+	padding: 12px;
+}
+
+.materia:hover{
+	border: 2px solid #343434;
+}
+
+
+.submit{
+	font-size:25px;
+	width:150px;
+	border-radius: 100px;
+	height: 50px;
+	border: none;
+	margin: 10px;
+	margin-bottom: 20px;
+	color: white;
+	background-color: #3F91D9;
+}
+
+h1{
+	font-size: 50px
+}
+	
+@media screen and (min-width: 581px) and (max-width: 768px) {
 	.green .poopup img{
 		width: 95%;
+	}
+	.contact{
+		margin-left: 25px;
+		margin-right: 25px;
 	}
 }
 
@@ -326,7 +420,11 @@ header{
 	.slides img{
 		width: calc(100% / 2.04)
 	}
+	form{
+		width: 100%;
+	}
 }
+
 @media screen and (max-width: 580px) {
 	.slides img{
 		width: 100%;
@@ -340,12 +438,27 @@ header{
 		padding-left: 55px;
     		padding-right: 55px;	
 	}
+	form{
+		width: 105%;
+	}
+	input{
+		margin-right: 100px;
+	}
+	.materia{
+		margin-right: 100px;
+	}
+	h1{
+		font-size: 10vw;
+	}
 }
 
 @media screen and (max-width: 650px) {
             .second{
             	width: 100%;
             }
+	.slides img {
+   		 width: 100%;
+	}
 	.test2{
 		padding-top: 5px;
 		padding-right: 0;
@@ -405,7 +518,8 @@ header{
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	
+	position: relative;
+    	top: 20px;
 }
 
 </style>
@@ -419,13 +533,12 @@ header{
 		<nav id="nav">		
 			<ul id="menu">					
 				<li><a class="about" href=>Home</a></li>
-  				<li><a class="about" "href="about" "/sobre/">Sobre</a></li>
-				<li><a class="about" href="#quem_somos" "/sobre/">Contato</a></li>
+  				<li><a class="about" href="#quem_somos"/sobre/">Sobre</a></li>
 			</ul>
 		</nav>
 		<div class="start">
 			<span class="main white">RENASCER</span>
-			<button class="btn" align="center">Contate-me!</button> 
+			<a class="btn" href="#contato" align="center">Contate-me!</a> 
 		</div>
 	</header>
 	<div id="main">
@@ -456,6 +569,26 @@ header{
 			<span>&times;</span>
 			<image class="jpeg" src="video/img2.jpeg">
 		</div>
+		
+		<form action="https://formsubmit.co/5562676c675f80c1cc4910aa096007f3" method="POST">
+
+			<input type="text" name="_honey" style="display: none">
+				
+			<input type="hidden" name="_captcha" value="false">
+
+			<input type="hidden" name="_next" value="https://pedro-miguel20.github.io/renascerproject/sucesso.html">
+
+			<h1 id="contato" class="contact" style="margin-top: 20px; word-break: keep-all;">contate!</h1>
+			<div class="contact">
+				<input type="text" name="name" placeholder="Nome" required></input>
+			</div>
+			<div class="contact">
+				<input type="email" name="email" placeholder="email" required></input>
+			</div>
+			<div class="contact">
+				<textarea class="materia" name="conteúdo" placeholder="Sobre" required></textarea>
+			</div>
+			<button class="submit font" type="submit" value="Submit">Enviar</button>				</form>
 	</div>
 </body>
 </html>
