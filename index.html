@@ -1,6 +1,7 @@
 <htm>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 <script>
 window.onload=function(){
 
@@ -104,6 +105,9 @@ const raf = () => {
 
 </script>
 <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,700&display=swap');
+
 @font-face{
 	font-family: 'amatic';
 	src: url(video/TiltNeon-Regular-VariableFont_XROT,YROT.ttf);
@@ -186,7 +190,7 @@ h2{
 	color: white;
 }
 
-a{
+.amenu{
 	text-decoration: none;
 	-webkit-font-smoothing: antialiased;
 	margin: 0;
@@ -210,7 +214,7 @@ header{
 	padding: 0;
 	margin: 0;
 	position: absolute;
-	top: 21px;
+	top: 15px;
 	right: 30px;
  	gap: 30px;
 }	
@@ -225,6 +229,7 @@ header{
 	border-radius: 25px;
 	margin: 25px;
 	margin-bottom: 0px;
+	text-decoration: none;
 } 
 
 .btn:hover{
@@ -239,8 +244,8 @@ header{
 	padding-left:120px;
     	padding-right:120px;
 	display: flex;
-	background: #68F53B;
-	height: 150svh;
+	background: linear-gradient(#72e54d, #68f53b);
+	height: auto;
 	flex-direction: column;
 }
 
@@ -276,6 +281,16 @@ header{
 
 .slides img:first-child{
 	margin-left: 0px;
+}
+
+#right:active{
+	height: 75px;
+    	width: 75px;
+}
+
+#left:active{
+	height: 75px;
+    	width: 75px;
 }
 
 .slideshow i{
@@ -346,7 +361,7 @@ form{
 	background-color: white;
 	border-radius: 20px;
 	width: 60%;
-	margin: 0;
+	margin-bottom: 70px;
 }
 
 .contact{
@@ -364,13 +379,10 @@ input{
 	height: 35px;
 	line-height: 35px;
 	font-size:20px;
-	border: 2px solid	 #737373;
 	margin-right:180px;
 	padding: 12px;
-}
-
-input:hover{
-	border: 2px solid #343434;
+	border-style: none;
+	background-color:#47a3f533;
 }
 
 .materia{
@@ -378,17 +390,13 @@ input:hover{
 	width: 100%;
 	resize: vertical;
 	height: 100px;
-	border: 2px solid #737373;
 	font-size:20px;
 	border-radius: 15px;
 	margin-right:190px;
 	padding: 12px;
+	background-color:#47a3f533;
+	border-style: none;
 }
-
-.materia:hover{
-	border: 2px solid #343434;
-}
-
 
 .submit{
 	font-size:25px;
@@ -400,6 +408,11 @@ input:hover{
 	margin-bottom: 20px;
 	color: white;
 	background-color: #3F91D9;
+}
+
+.submit:hover{
+	background: linear-gradient(228deg, rgba(63,145,218,1) 0%, rgba(119,170,215,1) 100%);
+	transition-duration:0.4s;
 }
 
 h1{
@@ -449,6 +462,26 @@ h1{
 	}
 	h1{
 		font-size: 10vw;
+	}
+	h3{
+		display: flex;
+		justify-content: space-evenly;
+	}
+	.inline{
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		left: 50%;
+   		transform: translate(-50%);
+	}
+	.icones{
+		margin: 0px 0px 15px 0px;
+	}
+	.green .poopup img{
+		width: 95%;
+	}
+	.home{
+		display: none;
 	}
 }
 
@@ -522,18 +555,110 @@ h1{
     	top: 20px;
 }
 
+.conteiner{
+	width: 20%;
+	display:flex;
+}
+
+.icones {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
+
+.icones .stop {
+  list-style: none;
+}
+
+.icones .stop .line {
+  width: 50px;
+  height: 50px;
+  background-color: #fff;
+  font-size: 25px;
+  margin: 0 10px;
+  display: flex;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  justify-content: center;
+  text-decoration: none;
+  align-items: center;
+}
+
+.icones .stop .line .icon {
+  position: relative;
+  color: #262626;
+  transition: .5s;
+  z-index: 3;
+}
+
+.icones .stop .line:hover .icon {
+  color: #fff;
+  transform: rotateY(360deg);
+}
+
+.icones .stop .line:before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: .5s;
+  z-index: 2;
+}
+
+.icones .stop .line:hover:before {
+  top: 0;
+}
+
+.icones .stop:nth-child(1) .line:before{
+  background: #262626;
+}
+
+.icones .stop:nth-child(2) .line:before{
+  background: #3b5999;
+}
+
+.icones .stop:nth-child(3) .line:before{
+  background: #0077b5;
+}
+
+.icones .stop:nth-child(4) .line:before{
+  background: #68f53b;
+}
+
+h3{
+	display: flex;
+	align-items: center;
+	font-weight: normal;
+	font-size: 15px;
+	font-family: 'Josefin Sans', sans-serif;
+}
+
+.inline{
+    display: flex;
+    justify-content: center;
+}
+
+.home{
+	position: absolute;
+	left: 0%;
+}
+
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
 	<header>
-		<a  href="#quem_somos">
-			<img src="video/logo.png" class="logo" href="#quem_somos" "width="30" height="30">
+		<a href="#quem_somos">
+			<img src="video/logo.png" id="renascer" class="logo" href="#quem_somos" "width="30" height="30">
 		</a>
 		<nav id="nav">		
 			<ul id="menu">					
-				<li><a class="about" href=>Home</a></li>
-  				<li><a class="about" href="#quem_somos"/sobre/">Sobre</a></li>
+  				<li><a class="amenu" href="#quem_somos"/sobre/">Sobre</a></li>
 			</ul>
 		</nav>
 		<div class="start">
@@ -589,6 +714,23 @@ h1{
 				<textarea class="materia" name="conteúdo" placeholder="Sobre" required></textarea>
 			</div>
 			<button class="submit font" type="submit" value="Submit">Enviar</button>				</form>
+	</div>
+	<div class="inline">
+	<h3 style="color: #111214;">Created by Pedro Miguel:</h3>
+	<ul class="icones">
+		<li class="stop">
+			<a class="line" href="https://github.com/Pedro-Miguel20"><i class="fab fa-github icon"></i></a>
+		</li>
+		<li class="stop">
+ 			<a class="line" href="https://www.facebook.com/profile.php?id=100014863563739"><i class="fab fa-facebook-f icon"></i></a>
+		</li>
+  		<li class="stop">
+   			<a class="line" href="https://www.linkedin.com/in/pedro-m-aguiar-09544b238/"><i class="fab fa-linkedin-in icon"></i></a></li>
+		</li>
+		<li class="stop home">
+   			<a class="line where" href="#renascer"><i class="fa fa-home icon"></i></a></li>
+		</li>
+	</ul>
 	</div>
 </body>
 </html>
