@@ -1,3 +1,6 @@
+/*by Pedro Miguel*/
+/*First exam question FreeCodeCamp*/
+
 function palindrome(str) {
   const without = str.replace(/[^a-zA-Z0-9]/g, '');
   console.log(without);
