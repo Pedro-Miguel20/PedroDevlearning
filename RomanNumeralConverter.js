@@ -1,3 +1,7 @@
+/*by Pedro Miguel*/
+/*First exam question FreeCodeCamp*/
+/*Conversor*/
+
 var j = 0;
 function convertToRoman() {
  var num = prompt("Chose a number");
