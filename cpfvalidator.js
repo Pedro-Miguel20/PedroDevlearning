@@ -1,7 +1,29 @@
+<html>
+    <body>
+        <input id='fill' placeholder='CPF' onkeyup='continue2()'>
+        <button >verificar</button>
+        <span id='result'></span>
+    </body>
+<script>
 let num2;
+let resp;
 const product = [];
 const product2 = [];
-var num = "03739783213";
+function continue2(){
+var num1 = document.getElementById('fill').value;
+var num = num1.replace(/\.|\-/g, '');
+console.log(num);
+if(num.length == 11 && num != '00000000000' 
+    && num != '11111111111'
+    && num != '22222222222' 
+    && num != '33333333333'
+    && num != '44444444444'
+    && num != '55555555555'
+    && num != '66666666666'
+    && num != '77777777777'
+    && num != '88888888888'
+    && num != '99999999999'){
+console.log(num);
 var digits = num.toString().split('');
 var realDigits = digits.map(Number);
 
@@ -36,7 +58,9 @@ var module2 = 11 - result2%11 -1;
 // Expected output: "012345678"
 
 if (realDigits[9]== module && realDigits[10] == module2){
-  console.log(num + ' is Valid')
+  document.getElementById('result').innerHTML= ' is valid';
 } else{
-  console.log('Invalid')
-}
+  document.getElementById('result').innerHTML= ' is not valid';
+}}else{document.getElementById('result').innerHTML= ' is not valid';}}}
+</script>
+</body>
