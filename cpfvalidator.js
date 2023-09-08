@@ -1,15 +1,14 @@
 <html>
     <body>
         <input id='fill' placeholder='CPF' onkeyup='continue2()'>
-        <button >verificar</button>
         <span id='result'></span>
     </body>
 <script>
 let num2;
 let resp;
-const product = [];
-const product2 = [];
-function continue2(){
+var product = [];
+var product2 = [];
+function continue1(){
 var num1 = document.getElementById('fill').value;
 var num = num1.replace(/\.|\-/g, '');
 console.log(num);
@@ -37,10 +36,10 @@ for(let i = 0; i < realDigits.length - 2; i++){
 for(let j = 0; j < realDigits.length - 1; j++){
     product2.push(realDigits[j] * dv2[j]);
 }
+  
+console.log(product2)
 
-//console.log(product2)
-
-//console.log(product)
+console.log(product)
 
 let result = product.reduce((a, b) => {
   return a + b;
@@ -49,18 +48,25 @@ let result2 = product2.reduce((a, b) => {
   return a + b;
 }, 10);
 
-//console.log(result);
+
 
 var module = 11 - result%11 -1;
 var module2 = 11 - result2%11 -1;
 
-//console.log(module);
+console.log(module);
 // Expected output: "012345678"
 
 if (realDigits[9]== module && realDigits[10] == module2){
   document.getElementById('result').innerHTML= ' is valid';
 } else{
   document.getElementById('result').innerHTML= ' is not valid';
-}}else{document.getElementById('result').innerHTML= ' is not valid';}}}
+}}else{document.getElementById('result').innerHTML= ' is not valid';}
+ let key = event.key;
+ if (key == "Backspace") { 
+    product = [];
+    product2= []
+    return;
+    }
+}
 </script>
 </body>
