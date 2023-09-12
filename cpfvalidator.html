@@ -102,10 +102,10 @@ console.log(module);
 // Expected output: "012345678"
 
 if (realDigits[9]== module && realDigits[10] == module2){
-  document.getElementById('result').innerHTML= ' is valid';
+  document.getElementById("fill").style.boxShadow = "";
 } else{
-  document.getElementById('result').innerHTML= ' is not valid';
-}}else{document.getElementById('result').innerHTML= ' is not valid';}
+  document.getElementById("fill").style.boxShadow = "0 0 3px 2px red";
+}}else{document.getElementById("fill").style.boxShadow = "0 0 3px 2px red";}
  let key = event.key;
  if (key == "Backspace") { 
     product = [];
@@ -113,6 +113,7 @@ if (realDigits[9]== module && realDigits[10] == module2){
     return;
     }
 }
+//input do cep
 const inputCep = document.querySelector(".input-cep");
 const inputRua = document.querySelector(".input-rua");
 const inputBairro = document.querySelector(".input-bairro");
