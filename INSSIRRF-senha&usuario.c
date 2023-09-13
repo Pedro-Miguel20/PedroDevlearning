@@ -2,11 +2,17 @@
 
 int main()
 {   
-    char senha[8];
+    char usuario[4];
+    double senha;
+    while(usuario != "Admin" && senha != 5432){
+    printf("Usuário: ");
+    scanf("%s", usuario);
     printf("Senha: ");
-    scanf("%s", senha);
+    scanf("%le", &senha);
+    }
+    
     double repetir = 1;
-    while(senha != "123" && repetir ==1){
+    
     while (repetir == 1){
     repetir = 0;
     
@@ -78,5 +84,5 @@ int main()
     
     
     printf("\n Se quiser repetir clique 1: ");
-    scanf("%le",&repetir);}}
+    scanf("%le",&repetir);}
 }
