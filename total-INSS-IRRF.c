@@ -1,10 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
 
 int main()
 {   
+    
     double repetir = 1;
     while (repetir == 1){
     repetir = 0;
+    
     
     float salario;
     float inss;
@@ -15,15 +19,17 @@ int main()
     float inss1, inss2, inss3, inss4, inss5;
     float salario1, salario2, salario3, salario4, salario5, salario6, salario7;
     if (salario > 7507.49){
-        salario1 = salario - 3856.94;
+        salario1 = 7507.49 - 3856.94;
         inss1 = (salario1 * 14)/100;}
-    if(salario > 3856.94 && salario < 7507.49){
+    else if(salario > 3856.94 && salario < 7507.49){
         salario2 = salario - 3856.95;
         inss2 = (salario2 * 14)/100;
-    } else if(salario > 3856.94){
+    }else if(salario > 3856.94){
         salario3 = 7507.49 - 3856.95;
         inss2 = (salario3 * 14)/100;
-    }
+    } 
+
+    
     if(salario > 2571.30 && salario < 3856.95){
         salario4 = salario - 2571.30;
         inss3 = (salario4 * 12)/100;
@@ -31,11 +37,8 @@ int main()
         salario5 = 3856.94 - 2571.30;
         inss3 = (salario5 * 12)/100;
     }
-    if(salario > 1320.01 && salario < 3856.94){
-        salario6 = 2571.29 - 1320.01;
-        inss4 = (salario6 * 9)/100;
-    } else if(salario > 1320.01 && salario < 2571.29){
-        salario6 = 2571.29 - 1320.01;
+    if(salario > 1320.01 && salario < 2571.29){
+        salario6 = salario - 1320.01;
         inss4 = (salario6 * 9)/100;
     } else if(salario > 1320.00){
         salario7 = 2571.29 - 1320.01;
@@ -74,5 +77,7 @@ int main()
     
     
     printf("\n Se quiser repetir clique 1: ");
-    scanf("%le",&repetir);}
+    scanf("%le",&repetir);
+    system("clear");
+    }
 }
