@@ -80,8 +80,10 @@ int main()
     }
     liquido = deducao_inss - deducao_irrf;
     
-    printf("\n valor inss: %.2f R$", inss);
-    printf("\n valor dedução: %.2f R$", deducao_inss);
+    printf("\n valor bruto: %.2f R$", salario);
+    printf("\n valor inss: -%.2f R$", inss);
+    printf("\n valor dedução-inss: %.2f R$", deducao_inss);
+    printf("\n valor dedução: -%.2f R$", deducao_irrf);
     printf("\n valor liquido: %.2f R$", liquido);
     
     
