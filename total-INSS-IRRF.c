@@ -54,18 +54,18 @@ int main()
     //SEGUINDO A TABELE DO IRRF 2023 para dedução
     
     if(deducao_inss > 4664.68){
-        deducao_irrf = ((deducao_inss*27.5)/100)-883.96;
+        deducao_irrf = ((deducao_inss*27.5)/100)-884.96;
+        printf("\n valor dedução: %.2f R$", deducao_irrf);
     }
-    if(deducao_inss < 4664.67 && deducao_inss > 3.751,06){
+    if(deducao_inss < 4664.67 && deducao_inss > 3751.06){
         deducao_irrf = ((deducao_inss*22.5)/100)-651.73;
     }
     if(deducao_inss < 3751.05 && deducao_inss > 2826.66){
-        deducao_irrf = ((deducao_inss*15)/100)-354.90;
+        deducao_irrf = ((deducao_inss*15)/100)-370.40;
     }
     if(deducao_inss < 2826.65 && deducao_inss > 1903.99){
-        deducao_irrf = ((deducao_inss*7.5)/100)-142.80;
+        deducao_irrf = ((deducao_inss*7.5)/100)-158.40;
     }
-    printf("\n valor irrf: %.2f R$", deducao_irrf);
     liquido = deducao_inss - deducao_irrf;
     
     printf("\n valor inss: %.2f R$", inss);
