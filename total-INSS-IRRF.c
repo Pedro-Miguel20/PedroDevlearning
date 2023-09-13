@@ -70,9 +70,11 @@ int main()
         deducao_irrf = ((deducao_inss*7.5)/100)-158.40;
     }
     liquido = deducao_inss - deducao_irrf;
-    
-    printf("\n valor inss: %.2f R$", inss);
-    printf("\n valor dedução: %.2f R$", deducao_inss);
+
+    printf("\n valor bruto: %.2f R$", salario);
+    printf("\n valor inss: -%.2f R$", inss);
+    printf("\n valor dedução-inss: %.2f R$", deducao_inss);
+    printf("\n valor dedução: -%.2f R$", deducao_irrf);
     printf("\n valor liquido: %.2f R$", liquido);
     
     
