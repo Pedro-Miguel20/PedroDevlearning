@@ -2,6 +2,7 @@
 
 int main()
 {
+        //QUESTAO 8
         printf("Questão 8 - Faça um programa que leia um número inteiro e imprima na tela\n se o mesmo está na faixa entre 20 e 40 ou não.");
     int number;
     printf("\n\n R = Digite um número: ");
@@ -11,7 +12,8 @@ int main()
     }else{
         printf("Não pertence ao grupo\n");
     }
-    
+
+        QUESTAO 9
     int number1;
     printf("\n\n Questão 9 - Faça um programa que leia um número e mostre na tela se ele é igual \n a 10, a 20, a 30, se não for imprimir a mensagem “Número inválido”.");
     
