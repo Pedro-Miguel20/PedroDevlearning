@@ -1,20 +1,24 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
 
 int main()
 {   
     char usuario[4];
     double senha;
     while(usuario != "Admin" && senha != 5432){
-    printf("Usuário: ");
+    printf("Usuário:");
     scanf("%s", usuario);
+    system("clear");
     printf("Senha: ");
     scanf("%le", &senha);
+    system("clear");
     }
     
     double repetir = 1;
-    
     while (repetir == 1){
     repetir = 0;
+    
     
     float salario;
     float inss;
@@ -41,10 +45,7 @@ int main()
         salario5 = 3856.94 - 2571.30;
         inss3 = (salario5 * 12)/100;
     }
-    if(salario > 1320.01 && salario < 3856.94){
-        salario6 = 2571.29 - 1320.01;
-        inss4 = (salario6 * 9)/100;
-    } else if(salario > 1320.01 && salario < 2571.29){
+    if(salario > 1320.01 && salario < 2571.29){
         salario6 = 2571.29 - 1320.01;
         inss4 = (salario6 * 9)/100;
     } else if(salario > 1320.00){
@@ -84,5 +85,7 @@ int main()
     
     
     printf("\n Se quiser repetir clique 1: ");
-    scanf("%le",&repetir);}
+    scanf("%le",&repetir);
+    system("clear");
+    }
 }
