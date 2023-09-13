@@ -22,18 +22,18 @@
     scanf("%f",&math4);
     float sum = math1 + math2 + math3 + math4;
     float media = sum/4;
-    if ( media > 7){
-			printf("Aprovado media = %.2f", media);
+	if ( media > 7){
+		printf("Aprovado media = %.2f", media);
 	} else {
-			printf("De exame, media final = %.2f", media);
-			printf("\n Digite a nota do exame: ");
+		printf("De exame, media final = %.2f", media);
+		printf("\n Digite a nota do exame: ");
 	        scanf("%f",&exam);
-            float final = (exam + media)/2;
-		    if (final > 5){
-		        printf("Aprovado media final = %.2f", final);
+            	float final = (exam + media)/2;
+		if (final > 5){
+			printf("Aprovado media final = %.2f", final);
 	        } else {
-			    printf("reprovado, media final = %.2f", final);}}
+			printf("reprovado, media final = %.2f", final);}}
 	
-	printf("\n Se quiser repetir clique 1: ");
+    printf("\n Se quiser repetir clique 1: ");
     scanf("%le",&repetir);}
 }
