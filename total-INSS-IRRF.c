@@ -18,7 +18,7 @@ int main()
         salario1 = salario - 3856.94;
         inss1 = (salario1 * 14)/100;}
     if(salario > 3856.94 && salario < 7507.49){
-        salario2 = salario - 3859.95;
+        salario2 = salario - 3856.95;
         inss2 = (salario2 * 14)/100;
     } else if(salario > 3856.94){
         salario3 = 7507.49 - 3856.95;
@@ -45,10 +45,32 @@ int main()
         inss5 = (1320.00*7.5)/100;
     }
     
+    float liquido;
+    float deducao_irrf;
     inss = inss5+inss4 + inss3 + inss2+inss1;
-    printf("\n valor dedução: %.2f R$", inss);
-    float deducao = salario-inss;
-    printf("\n valor dedução: %.2f R$", deducao);
+    float deducao_inss = salario-inss;
+    
+    
+    //SEGUINDO A TABELE DO IRRF 2023 para dedução
+    
+    if(deducao_inss > 4664.68){
+        deducao_irrf = ((deducao_inss*27.5)/100)-883.96;
+    }
+    if(deducao_inss < 4664.67 && deducao_inss > 3.751,06){
+        deducao_irrf = ((deducao_inss*22.5)/100)-651.73;
+    }
+    if(deducao_inss < 3751.05 && deducao_inss > 2826.66){
+        deducao_irrf = ((deducao_inss*15)/100)-354.90;
+    }
+    if(deducao_inss < 2826.65 && deducao_inss > 1903.99){
+        deducao_irrf = ((deducao_inss*7.5)/100)-142.80;
+    }
+    printf("\n valor irrf: %.2f R$", deducao_irrf);
+    liquido = deducao_inss - deducao_irrf;
+    
+    printf("\n valor inss: %.2f R$", inss);
+    printf("\n valor dedução: %.2f R$", deducao_inss);
+    printf("\n valor liquido: %.2f R$", liquido);
     
     
     printf("\n Se quiser repetir clique 1: ");
