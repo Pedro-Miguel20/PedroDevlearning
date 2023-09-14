@@ -68,7 +68,7 @@ int main()
     if(deducao_inss < irrf_b-0.01 && deducao_inss > irrf_c){
         deducao_irrf = ((deducao_inss*15)/100)-370.40;
     }
-    if(deducao_inss < irrf_c-0.01 && deducao_inss > d){
+    if(deducao_inss < irrf_c-0.01 && deducao_inss > irrf_d){
         deducao_irrf = ((deducao_inss*7.5)/100)-158.40;
     }
     liquido = deducao_inss - deducao_irrf;
