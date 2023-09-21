@@ -1,0 +1,14 @@
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\bin\Debug\net7.0\AlunoClasse.exe
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\bin\Debug\net7.0\AlunoClasse.deps.json
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\bin\Debug\net7.0\AlunoClasse.runtimeconfig.json
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\bin\Debug\net7.0\AlunoClasse.dll
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\bin\Debug\net7.0\AlunoClasse.pdb
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\obj\Debug\net7.0\AlunoClasse.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\obj\Debug\net7.0\AlunoClasse.AssemblyInfoInputs.cache
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\obj\Debug\net7.0\AlunoClasse.AssemblyInfo.cs
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\obj\Debug\net7.0\AlunoClasse.csproj.CoreCompileInputs.cache
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\obj\Debug\net7.0\AlunoClasse.dll
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\obj\Debug\net7.0\refint\AlunoClasse.dll
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\obj\Debug\net7.0\AlunoClasse.pdb
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\obj\Debug\net7.0\AlunoClasse.genruntimeconfig.cache
+C:\Users\03529019267\source\repos\AlunoClasse\AlunoClasse\obj\Debug\net7.0\ref\AlunoClasse.dll
