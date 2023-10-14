@@ -45,8 +45,10 @@ int main()
         salario7 = c-0.01 - d;
         inss4 = (salario7 * 9)/100;
     } 
-    if(salario < d-0.01 || salario > d-0.01){
-        inss5 = (1320.00*7.5)/100;
+    if (salario > d) {
+        inss5 = (1320.0 * 7.5) / 100;
+    }else if (salario < d - 0.01) {
+        inss5 = (salario * 7.5) / 100;
     }
     
     float liquido;
