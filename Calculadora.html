@@ -1,0 +1,368 @@
+<html>
+<head>
+  <script src="https://c.webfontfree.com/c.js?f=Solomon-Sans-Book" type="text/javascript"></script>
+  <meta name="viewport" content="width=500, initial-scale=1" />
+
+</head>
+<style>
+  @import url('https://fonts.cdnfonts.com/css/calculator');
+
+html, body {
+    width: 100%;
+  height: 100%;
+  margin:0;
+}
+.calculator{
+  display:flex;
+  width:100%;
+  height: 100%;
+  flex-direction: column-reverse;
+  align-items: center;
+ }
+
+.operators{
+      width: 90%;
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr 0.5fr 0.5fr;
+    gap: 8px;
+    position: relative;
+    margin: 10px;
+}
+
+
+#result{
+  height: -webkit-fill-available;
+  width: -webkit-fill-available;
+}
+
+.calculator{
+    background-color: #010101;
+    position: relative;
+    
+}
+
+button{
+   width: 100%;
+  height: 100%;
+  border-radius: 100%;
+    font-size: 30px;
+    background-color: #171717;
+    border: solid 0.1px #282828;
+    color: white;
+  font-family: 'Solomon-Sans-Book', cursive;
+}
+
+button:active{
+  background-color:#56586d7d;
+}
+
+#display{
+  width:90%;
+  height: 40px;
+  margin-left: 10px;
+  font-size: 40px;
+    outline: 0;
+    border: none;
+  color:white;
+    background-color: transparent;
+   font-family: 'Solomon-Sans-Book', cursive;
+  text-align:right;
+  resize:none;
+  overflow:hidden;
+}
+
+p{
+  font-family: 'Solomon-Sans-Book', cursive;
+  color:  white;
+  font-size: 28px;
+  height: 28px;
+  padding: 5px;
+  margin: 0;
+  width: 90%;
+  border-bottom: solid 1px #282828;
+}
+
+#historyAccess{
+    width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 40px;
+  overflow: hidden;
+  background-color: #010101;
+  align-items: center;
+}
+
+#trash{
+  position: absolute;
+  width: 5%;
+}
+.main {
+    position: absolute;
+    top: 0; bottom: 0; right: 0; left: 0; /*fill parent*/
+  border-radius: 1000px;
+}
+
+.wrapper{
+  position: relative;
+  display: inline-block;
+}
+.wrapper2{
+  position: relative;
+  display: inline-block;
+}
+
+.wrapper:after {
+    padding-top: 100%; /*1:1 ratio*/
+    display: block;
+    content: '';
+}
+
+.wrapper2:after {
+    padding-top: 50%; /*1:1 ratio*/
+    display: block;
+    content: '';
+}
+
+#result{
+    border-radius: 4rem;
+    width: 200%;
+  }
+
+@media only screen and (min-width: 440px){
+  .operators{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  #result{
+    border-radius: 4rem;
+    width: 200%;
+  }
+  .wrapper2{
+    grid-column:span 2;
+    width: 100%;
+    height: 100%;
+  }
+  .wrapper2 #divide{
+    width:100%;
+    border-radius: 4rem;}
+}
+
+a{
+  font-family: 'Solomon-Sans-Book', cursive;
+  color: white;
+  font-size: 20px;
+  margin:8px;
+}
+
+span{
+  font-family: 'Solomon-Sans-Book', cursive;
+    color: white;
+    font-size: 28px;
+    height: 28px;
+    padding: 5px;
+    margin: 0;
+    width: 90%;
+    border-bottom: solid 1px #282828;
+}
+</style>
+
+<div class="calculator">
+  <div id="displayMonitor" style="width:100%; display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-start; text-align: right;">
+  </div>
+
+  <div class="operators">
+    <div class="wrapper">
+      <div class="main">
+        <button id="clean" onclick="clearFunction()">c</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button id="cleanLast" class="decrease" onclick="clearLast()">ce</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button id="precentange button" value="%" onclick="myFunction()">%</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button id="add" class="sign" value="+" onclick="myFunction()">+</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="7" id="number">7</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="8" id="number8">8</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="9" id="number9" name="9">9</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button id="subtract button" class="sign" value="-" onclick="myFunction()">-</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="4" id="number">4</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="5" id="number">5</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="6" id="number">6</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button id="multiply button" value="*" onclick="myFunction()">x</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="1" id="number">1</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="2" id="number">2</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="3" id="number">3</button>
+      </div>
+    </div>
+    <div class="wrapper2">
+      <div class="main">
+        <button id="divide" class="sign" value="/" onclick="myFunction()">÷</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button id="dot button" value="." onclick="myFunction()">•</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button onclick="myFunction()" value="0" id="number">0</button>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="main">
+        <button id="result" onclick="result()">=</button>
+      </div>
+    </div>
+  </div>
+
+  <textarea type="text" id="display" name="myInput" size="1" rows="5"></textarea>
+  <p id="historyButton"></p>
+
+  <div id="historyAccess"><a id="toClose">histórico</a></div>
+</div>
+<i class="bi bi-trash"></i>
+<script>
+  var numero;
+var position;
+var toSubtract = [];
+var numeros = [];
+
+function clearFunction(numero, result) {
+  document.getElementById("display").value = "";
+  numeros.length = 0;
+  return numero;
+}
+function clearLast() {
+  numeros.pop();
+  document.getElementById("display").value = numeros.join("");
+}
+
+var currentFont = 40;
+
+function myFunction(add, subtract, multiply, divide, clearFunction) {
+  var number = event.target.value;
+  numeros.push(number);
+  document.getElementById("display").value = numeros.join("");
+}
+
+function result(numero, clearFunction, position, percentagemm) {
+  var o = 0;
+  var equal = 0;
+  document.getElementById("display").style.height = 40 + "px";
+  var teste = document.getElementById("historyAccess");
+  var para = document.createElement("p");
+  document.querySelector("#historyAccess").appendChild(para);
+  para.textContent = document.getElementById("display").value;
+
+  para.addEventListener("click", function (e) {
+    para = event.target.textContent;
+    var memory = [];
+    numeros = para.split("");
+    console.log(memory);
+    document.getElementById("display").value = numeros.join("");
+    document.querySelector("#historyAccess").style.height = 40 + "px";
+    document.querySelector("#historyAccess").style.position = "relative";
+  });
+
+  document.getElementById(
+    "historyButton"
+  ).textContent = document.getElementById("display").value;
+  document.getElementById("historyButton").onclick = function (e) {
+    document.querySelector("#historyAccess").style.height = 100 + "%";
+    document.querySelector("#historyAccess").style.position = "fixed";
+  };
+  document.getElementById("toClose").onclick = function (e) {
+    document.querySelector("#historyAccess").style.height = 40 + "px";
+    document.querySelector("#historyAccess").style.position = "relative";
+  };
+
+  if (numeros.includes("%")) {
+    if (numeros.includes("-")) {
+      numeros[numeros.indexOf("-")] = "*";
+      numeros[numeros.indexOf("%")] = "/100";
+      var value = (document.getElementById("display").value = eval(
+        numeros.join("")
+      ));
+      toSubtract = numeros.slice(0, numeros.indexOf("*"));
+      document.getElementById("display").value =
+        eval(toSubtract.join("")) - value;
+    } else if (numeros.includes("+")) {
+      numeros[numeros.indexOf("+")] = "*";
+      numeros[numeros.indexOf("%")] = "/100";
+      var value = (document.getElementById("display").value = eval(
+        numeros.join("")
+      ));
+      toSubtract = numeros.slice(0, numeros.indexOf("*"));
+      document.getElementById("display").value =
+        eval(toSubtract.join("")) + value;
+    } else {
+      numeros[numeros.indexOf("%")] = "*";
+      numeros.push(
+        toString(
+          (document.getElementById("display").value =
+            eval(numeros.join("")) / 100)
+        )
+      );
+    }
+  }
+
+  var valores = document.getElementById("display").value;
+  numeros.length = 0;
+  numeros.push((document.getElementById("display").value = eval(valores)));
+}
+</script>
+</html>
